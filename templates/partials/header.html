@@ -1,0 +1,79 @@
+<!--
+  templateType: global_partial
+  label: Website header
+-->
+<header id="site-header" class="site-header site-header site-header--fixed navigation-1">
+  {# The link below is used for a navigation skipper which allows users navigating the site with their keyboard to skip over the site navigation. More information on the navigation skipper can be found here: https://github.com/HubSpot/cms-theme-boilerplate/wiki/Accessibility #}
+
+  <a href="#main-content" class="header__skip">Skip to content</a>
+
+  {# Main header #}
+
+  <div class="container">
+    
+    {# Navbar #}
+    
+    <div class="navbar navbar-expand-xl ham-icon-right">
+      
+      {# Hamburger toggle button #}
+      
+      <button type="button" aria-label="Hamburger Toggle Button" class="hamburger-icon d-xl-none order-2" id="site-header-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      {# Header logo column #}
+
+      <div class="site-header-logo order-1">
+        {% module "site_logo"
+          path="@hubspot/logo"
+          img={
+            "loading": "eager"
+          }
+          no_wrapper="true"
+        %}
+      </div>
+      
+      {# Contact column for small devices #}
+      
+      <div class="site-header-menu__item site-header-contact d-block d-xl-none">
+        {% module "module_17306912789861" 
+          path='/test-ebpearls/modules/header/header-contact'
+          label="header-contact"
+          no_wrapper="true"
+        %}
+      </div>
+      
+      {# Navigation menu column #}
+      
+      <div id="menu-container" class="site-header-menu d-xl-flex flex-wrap align-items-center order-2">
+        <nav id="site-header-naviation" class="site-header-menu__item site-header-naviation">
+          {% module "header-menu"
+            path='/test-ebpearls/modules/header/header-menu',
+            label="Primary navigation"
+            no_wrapper="true"
+          %}
+        </nav>
+      </div>
+      
+      {# Contact column for large devices #}
+      
+      <div class="site-header-actions d-none d-xl-flex align-items-center order-3">
+        <div class="site-header-contact">
+          {% module "module_17306912789861"
+            path='/test-ebpearls/modules/header/header-contact'
+            label="header-contact"
+            no_wrapper="true"
+          %}
+        </div>
+        {% module "module_173069388008219"
+          path='/test-ebpearls/modules/header/header-action'
+          label="header-action"
+          no_wrapper="true"
+         %}
+      </div>
+      
+    </div>
+  </div>
+</header>

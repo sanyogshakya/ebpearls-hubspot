@@ -1,0 +1,36 @@
+{% import "../../macros/section-heading-macro.html" %}
+{% set padding = module.style.section_padding %}
+{% set bg_color = module.style.background_color != "none" ? "bg-" ~ module.style.background_color : "" %}
+<section class="section faq-block {{ bg_color }} {{ padding|join(" ") }} {{ module.style.padding_type }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-5 col-content">
+        {% if module.title or module.description or module.link %}
+          {{ section_heading(module.title, module.description, module.link, module.link_title, "btn btn-primary") }}
+        {% endif %}
+      </div>
+      <div class="col-12 col-lg-7 col-accordion">
+        {% if module.faqs %}
+          <div id="rank-math-faq" class="rank-math-block">
+            <div class="rank-math-list">
+              {% set count = 1 %}
+              {% for item in module.faqs %}
+                {% if item.question and item.answer %}
+                  <div id="faq-question-{{ name }}-{{ count }}" class="rank-math-list-item">
+                    <h3 class="rank-math-question ">
+                      {{ item.question }}
+                    </h3>
+                    <div class="rank-math-answer">
+                      {% inline_rich_text field="answer" value="{{ item.answer }}" no_wrapper=true %}
+                    </div>
+                  </div>
+                  {% set count = count + 1 %}
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

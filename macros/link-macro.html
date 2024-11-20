@@ -1,0 +1,28 @@
+<!--
+    templateType: global_partial
+    isAvailableForNewContent: false
+-->
+{% macro custom_link(link, text, class="btn btn-primary") %}
+  {% if link %}
+    {% set href = link.url.href %}
+    {% if link.url.type is equalto "EMAIL_ADDRESS" %}
+      {% set href = "mailto:" + href %}
+    {% endif %}
+    <a
+       {% if link.url.type is equalto "CALL_TO_ACTION"  %}
+        href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+       {% else %}
+        href="{{ href|escape_url }}"
+       {% endif %}
+       {% if link.open_in_new_tab %}
+        target="_blank"
+       {% endif %}
+       {% if link.rel %}
+        rel="{{ link.rel|escape_attr }}"
+       {% endif %}
+       class="{{ class|escape_attr }}"
+       >
+      {{ text }}
+    </a>
+  {% endif %}
+{% endmacro %}

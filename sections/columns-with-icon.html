@@ -1,0 +1,22 @@
+<!--
+  templateType: section
+  label: Columns With Icon
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/hero-banner.png
+  description: "Columns With Icon section, displays columns with icon/image, title and description."
+-->
+{% dnd_section
+  padding={
+    'top': 0,
+    'right': 0,
+    'bottom': 0,
+    'left': 0
+  },
+  full_width=true
+%}
+  {% dnd_module
+    path="../modules/columns-with-icon",
+    label="columns-with-icon"
+  %}
+  {% end_dnd_module %}
+{% end_dnd_section %}

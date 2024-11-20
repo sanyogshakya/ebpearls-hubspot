@@ -1,0 +1,38 @@
+{% import "../../macros/section-heading-macro.html" %}
+{% set padding = module.style.section_padding %}
+{% set bg_color = module.style.background_color != "none" ? "bg-" ~ module.style.background_color : "" %}
+<section class="section counter-block type-grid {{ bg_color }} {{ padding|join(" ") }} {{ module.style.padding_type }}">
+  <div class="container">
+    {% if module.title or module.description %}
+      {{ section_heading(module.title, module.description, "", "", "", "text-center") }}
+    {% endif %}
+
+    {% if module.counter_list|length > 0 %}
+    <div class="counter-lists">
+      <div class="row">
+        {% for count_item in module.counter_list %}
+        <div class="col-6 col-md-3 col-counter">
+          <div class="counter-wrap">
+            {% if count_item.icon.src %}
+            {% set loadingAttr = count_item.icon.loading != 'disabled' ? 'loading="{{ count_item.icon.loading|escape_attr }}"' : '' %}
+            <div class="icon-wrap">
+              <img src="{{ count_item.icon.src|escape_url }}" alt="{{ count_item.icon.alt|escape_attr }}" {{ loadingAttr }} width="49" height="48">
+            </div>
+            {% endif %}
+
+            {% if count_item.number or count_item.description %}
+            <div class="text-wrap">
+              {% if count_item.number %}
+              <h3 class="counter">{{ count_item.number }}</h3>
+              {% endif %}
+              {{ count_item.description }}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>

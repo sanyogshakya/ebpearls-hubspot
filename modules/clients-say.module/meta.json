@@ -1,0 +1,14 @@
+{
+  "label": "Clients Say",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "help_text": "",
+  "content_types": [
+    "PAGE"
+  ],
+  "js_assets": [],
+  "other_assets": [],
+  "smart_type": "NOT_SMART",
+  "tags": []
+}

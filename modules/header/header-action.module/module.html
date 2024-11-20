@@ -1,0 +1,21 @@
+<div class="site-header-action">
+  {% set href = module.header_action_link.url.href %}
+  {% if module.header_action_link.url.type is equalto "EMAIL_ADDRESS" %}
+    {% set href = "mailto:" + href %}
+  {% endif %}
+  {% if module.header_action_link.url.type is equalto "PHONE_NUMBER" %}
+    {% set href =  module.header_action_link.url.href_with_scheme %}
+  {% endif %}
+  <a
+    class="btn btn-primary"
+    href="{{ href|escape_url }}"
+    {% if module.header_action_link.open_in_new_tab %}
+      target="_blank"
+    {% endif %}
+    {% if module.header_action_link.rel %}
+      rel="{{ module.header_action_link.rel|escape_attr }}"
+    {% endif %}
+    >
+    {% inline_text field="header_action_title" value="{{ module.header_action_title }}" %}
+  </a>
+</div>

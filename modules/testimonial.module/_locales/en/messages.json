@@ -1,0 +1,87 @@
+{
+  "customer_name.default" : {
+    "message" : "",
+    "description" : "",
+    "placeholders" : null
+  },
+  "customer_name.help_text" : {
+    "message" : "",
+    "description" : "",
+    "placeholders" : null
+  },
+  "customer_name.inline_help_text" : {
+    "message" : "",
+    "description" : "",
+    "placeholders" : null
+  },
+  "customer_name.label" : {
+    "message" : "Customer name",
+    "description" : "",
+    "placeholders" : null
+  },
+  "customer_name.placeholder" : {
+    "message" : "",
+    "description" : "",
+    "placeholders" : null
+  },
+  "customer_name.validation_regex" : {
+    "message" : "",
+    "description" : "",
+    "placeholders" : null
+  },
+  "name" : {
+    "message" : "testimonial",
+    "description" : "",
+    "placeholders" : null
+  },
+  "profile_pic.default.alt" : {
+    "message" : "download-1",
+    "description" : "",
+    "placeholders" : null
+  },
+  "profile_pic.help_text" : {
+    "message" : "",
+    "description" : "",
+    "placeholders" : null
+  },
+  "profile_pic.inline_help_text" : {
+    "message" : "",
+    "description" : "",
+    "placeholders" : null
+  },
+  "profile_pic.label" : {
+    "message" : "Profile picture",
+    "description" : "",
+    "placeholders" : null
+  },
+  "profile_pic.placeholder" : {
+    "message" : "",
+    "description" : "",
+    "placeholders" : null
+  },
+  "testimonial.default" : {
+    "message" : "This is the default testimonial.",
+    "description" : "",
+    "placeholders" : null
+  },
+  "testimonial.help_text" : {
+    "message" : "",
+    "description" : "",
+    "placeholders" : null
+  },
+  "testimonial.inline_help_text" : {
+    "message" : "",
+    "description" : "",
+    "placeholders" : null
+  },
+  "testimonial.label" : {
+    "message" : "Testimonial",
+    "description" : "",
+    "placeholders" : null
+  },
+  "testimonial.placeholder" : {
+    "message" : "",
+    "description" : "",
+    "placeholders" : null
+  }
+}

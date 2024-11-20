@@ -1,0 +1,49 @@
+<div class="footer-subscription">
+  <div class="container">
+    <div class="footer-subscription-wrap">
+      <div class="row">
+        <div class="col-12 col-md-6 col-logo">
+          <div class="col-wrap">
+            <div class="footer-logo">
+              <a href="{{ request.domain }}">
+                {% if module.footer_logo.src %}
+                  {% set sizeAttrs = 'width="{{ module.footer_logo.width|escape_attr }}" height="{{ module.footer_logo.height|escape_attr }}"' %}
+                  {% if module.footer_logo.size_type == 'auto' %}
+                    {% set sizeAttrs = 'width="{{ module.footer_logo.width|escape_attr }}" height="{{ module.footer_logo.height|escape_attr }}" style="max-width: 100%; height: auto;"' %}
+                  {% elif module.footer_logo.size_type == 'auto_custom_max' %}
+                    {% set sizeAttrs = 'width="{{ module.footer_logo.max_width|escape_attr }}" height="{{ module.footer_logo.max_height|escape_attr }}" style="max-width: 100%; height: auto;"' %}
+                  {% endif %}
+                   {% set loadingAttr = module.footer_logo.loading != 'disabled' ? 'loading="{{ module.footer_logo.loading|escape_attr }}"' : '' %}
+                  <img src="{{ module.footer_logo.src|escape_url }}"  alt="EB Pearls" width="149" height="60" {{ loadingAttr }}>
+                {% endif %}
+              </a>
+            </div>
+            {% if module.footer_text %}
+            <div class="footer-text">
+              {% inline_rich_text field="footer_text" value="{{ module.footer_text }}" %}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+
+        {% set hide_form_class = content.landingPage ? " d-none" : "" %}
+        <div class="col-12 col-md-6 col-form{{ hide_form_class }}">
+          <div class="col-wrap">
+            {% if module.footer_form %}
+            <div class="form-wrapper material-style">
+              {% form
+                form_to_use="{{ module.footer_form.form_id }}"
+                response_response_type="{{ module.footer_form.response_type }}"
+                response_message="{{ module.footer_form.message }}"
+                response_redirect_id="{{ module.footer_form.redirect_id }}"
+                response_redirect_url="{{module.footer_form.redirect_url}}"
+                gotowebinar_webinar_key="{{ module.footer_form.gotowebinar_webinar_key }}"
+              %}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

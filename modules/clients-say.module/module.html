@@ -1,0 +1,105 @@
+{% import "../../macros/link-macro.html" %}
+{% set padding = module.style.section_padding %}
+{% set bg_color = module.style.background_color != "none" ? "bg-" ~ module.style.background_color : "" %}
+<section class="section clients-say-block {{ bg_color }} {{ padding|join(" ") }} {{ module.style.padding_type }} {{ module.choose_type }}">
+    <div class="container">
+        {% if module.choose_type == "type2" %}
+        <div class="row">
+            <div class="col-12 col-lg-3 col-heading">
+                <div class="col-wrap">
+                    {% if module.title %}
+                    <div class="title-wrap">
+                        <h2>{{ module.title }}</h2>
+                    </div>
+                    {% endif %}
+
+                    {% if module.link and module.link.url.href %}
+                    <div class="btn-wrap">
+                      {{ custom_link(module.link, module.link_title) }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            {% if module.clients_say_list %}
+            <div class="col-12 col-lg-9 col-content">
+                <div class="content-wrap">
+                    <div class="clients-say-lists">
+                      {% for clients_say in module.clients_say_list %}
+                        <div class="clients-say-list">
+                            <div class="clients-say-list-wrap">
+                                {% if clients_say.columns.image %}
+                                <div class="img-wrap">
+                                    <img src="{{ clients_say.columns.image.url }}" alt="{{ clients_say.columns.image.altText }}" width="223" height="213">
+                                </div>
+                                {% endif %}
+
+                                <div class="text-wrap">
+                                    <div class="star-rating">
+                                        <ul class="rating">
+                                            <li><img src="{{ get_asset_url('/test-ebpearls/images/icon-star-yellow.svg') }}" alt="star" width="24" height="24"></li>
+                                            <li><img src="{{ get_asset_url('/test-ebpearls/images/icon-star-yellow.svg') }}" alt="star" width="24" height="24"></li>
+                                            <li><img src="{{ get_asset_url('/test-ebpearls/images/icon-star-yellow.svg') }}" alt="star" width="24" height="24"></li>
+                                            <li><img src="{{ get_asset_url('/test-ebpearls/images/icon-star-yellow.svg') }}" alt="star" width="24" height="24"></li>
+                                            <li><img src="{{ get_asset_url('/test-ebpearls/images/icon-star-yellow.svg') }}" alt="star" width="24" height="24"></li>
+                                        </ul>
+                                        <span class="star-text">5.0</span>
+                                    </div>
+
+                                    {% if clients_say.columns.testimonial %}
+                                        <div class="content">
+                                            {{ clients_say.columns.testimonial }}
+                                        </div>
+                                    {% endif %}
+
+                                    <div class="client-info">
+                                        <strong class="name">{{ clients_say.columns.name }},</strong> <span class="designation">{{ clients_say.columns.designation }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% else %}
+            <div class="clients-say-wrap">
+              {% if module.title %}
+                <span class="title">{{ module.title }}</span>
+              {% endif %}
+
+                <div class="star-rating">
+                    <ul class="rating">
+                        <li><img src="{{ get_asset_url('/test-ebpearls/images/icon-star-yellow.svg') }}" alt="star" width="29" height="29"></li>
+                        <li><img src="{{ get_asset_url('/test-ebpearls/images/icon-star-yellow.svg') }}" alt="star" width="29" height="29"></li>
+                        <li><img src="{{ get_asset_url('/test-ebpearls/images/icon-star-yellow.svg') }}" alt="star" width="29" height="29"></li>
+                        <li><img src="{{ get_asset_url('/test-ebpearls/images/icon-star-yellow.svg') }}" alt="star" width="29" height="29"></li>
+                        <li><img src="{{ get_asset_url('/test-ebpearls/images/icon-star-yellow.svg') }}" alt="star" width="29" height="29"></li>
+                    </ul>
+                    <span class="star-text">5.0</span>
+                </div>
+
+                {% if module.clients_say_list and module.clients_say_list|length > 0 %}
+                  {% if module.clients_say_list[0].columns.testimonial %}
+                    <div class="content">
+                        {{ module.clients_say_list[0].columns.testimonial }}
+                    </div>
+                  {% endif %}
+
+                    <div class="client-info">
+                    {% if module.clients_say_list[0].columns.small_image %}
+                        <div class="img-wrap">
+                            <img src="{{ module.clients_say_list[0].columns.small_image.url }}" alt="{{ module.clients_say_list[0].columns.small_image.altText }}" width="95" height="95">
+                        </div>
+                    {% endif %}
+                        <div class="text-wrap">
+                            <strong class="name">{{ module.clients_say_list[0].columns.name }},</strong> <span class="designation">—{{ module.clients_say_list[0].columns.designation }}</span>
+                        </div>
+                    </div>
+                  {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</section>

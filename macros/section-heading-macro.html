@@ -1,0 +1,23 @@
+<!--
+    templateType: global_partial
+    isAvailableForNewContent: false
+-->
+{% import "./link-macro.html" %}
+{% macro section_heading(title="", description="", link=null, link_title="", link_class="btn btn-primary", section_class="") %}
+  <div class="section-heading {{ section_class|escape_attr }}">
+    {% if title %}
+      <h2 class="section-heading__title">{{ title }}</h2>
+    {% endif %}
+
+    {% if description %}
+      <div class="section-heading__desc">
+        {% inline_rich_text field="description" value="{{ description }}" no_wrapper=true %}
+      </div>
+    {% endif %}
+    {% if link and link.url.href %}
+    <div class="section-heading__link">
+      {{ custom_link(link, link_title, link_class) }}
+    </div>
+    {% endif %}
+  </div>
+{% endmacro %}

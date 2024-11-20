@@ -1,0 +1,11 @@
+{% set nepal_number = module.header_conact_for_nepal.url.href %}
+{% set sydney_number = module.header_contact.url.href %}
+<a 
+   class="header-contact" 
+   href="{{ module.header_contact.url.href_with_scheme }}"
+   {% if module.header_contact.open_in_new_tab %}
+    target="_blank"
+   {% endif %}
+   >
+  {{ module.header_contact.url.href }}
+</a>

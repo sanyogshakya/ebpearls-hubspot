@@ -1,0 +1,42 @@
+[ {
+  "id" : "6fbe2196-5c1f-4547-7b16-4113b1b79d51",
+  "name" : "customer_name",
+  "display_width" : null,
+  "label" : "Customer name",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text"
+}, {
+  "id" : "85c1846e-f164-c233-74c0-d525a1c89e41",
+  "name" : "profile_pic",
+  "display_width" : null,
+  "label" : "Profile picture",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "default" : {
+    "size_type" : "auto",
+    "src" : "https://47552583.fs1.hubspotusercontent-na1.net/hubfs/47552583/download-1.jpeg",
+    "alt" : "download-1",
+    "loading" : "lazy",
+    "width" : 152,
+    "height" : 148,
+    "max_width" : 152,
+    "max_height" : 148
+  }
+}, {
+  "id" : "21d2e190-798c-35d9-325d-43af22a952a2",
+  "name" : "testimonial",
+  "display_width" : null,
+  "label" : "Testimonial",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "default" : "This is the default testimonial."
+} ]

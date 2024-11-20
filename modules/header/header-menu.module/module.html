@@ -1,0 +1,195 @@
+{% if module.menus|length > 0 %} {# menus length start #}
+  <div class="primary-menu">
+    <ul id="primary-menu" class="menu">
+      {% for item in module.menus %}
+        {% set choose_columns = item.choose_columns %}
+        {% set cols = "" %}
+        {% if choose_columns == "two" %}
+          {% set cols = " col-12 col-xl-6 col-menu" %}
+        {% elif choose_columns == "three" %}
+          {% set cols = " col-12 col-xl-4 col-menu" %}
+        {% else %}
+          {% set cols = " col-12 col-xl-3 col-menu" %}
+        {% endif %}
+      
+        {% set count_sub_menus = 0 %}
+        {% if item.sub_menus and item.mega_menu %}
+          {% set count_sub_menus = item.sub_menus|length %}
+        {% endif %}
+    
+        {% set count_normal_sub_menu = 0 %}
+        {% if item.normal_sub_menu %}
+          {% set count_normal_sub_menu = item.normal_sub_menu|length %}
+        {% endif %}
+    
+        {% set menu_has_child = "" %}
+        {% if count_sub_menus > 0 or count_normal_sub_menu > 0 %}
+          {% set menu_has_child = " menu-item-has-children" %}
+        {% endif %}
+        {% set menu_type_class = item.mega_menu ? " has-mega-menu" : " normal-menu" %}
+        <li class="menu-item{{ menu_type_class }}{{ menu_has_child }}{{ ' ' ~ item.menu_custom_class }}">
+          {% if item.f_link.url and item.f_link.url.href|length > 0 %}
+            {% set f_href = item.f_link.url.href %}
+            <a
+              href="{{ f_href|escape_url }}"
+              {% if item.f_link.open_in_new_tab %}
+                target="_blank"
+              {% endif %}
+              {% if item.f_link.rel %}
+                rel="{{ item.f_link.rel|escape_attr }}"
+              {% endif %}
+             >
+              {{ item.f_title }}
+            </a>
+          {% else %}
+            <span class="menu-link-title">{{ item.f_title }}</span>
+          {% endif %}
+        
+          {% if count_sub_menus > 0 or count_normal_sub_menu > 0 %}
+            <span class="icon-wrapper d-xl-none"></span>
+          {% endif %}
+        
+          {% if item.mega_menu %}
+            <div class="mega-menu-block">
+              <div class="mega-menu-block-wrap">
+                {% if item.main_title %}
+                  <strong class="main-menu-title">{{ item.main_title }}</strong>
+                {% endif %}
+                {% if item.sub_menus %}
+                  {% set top_border_class = item.has_top_border ? " has-top-border" : "" %}
+                  <div class="mega-menu-wrap{{ top_border_class }}">
+                    <div class="row">
+                      {% for sub_menu in item.sub_menus %}
+                        {% set icon_title_class = sub_menu.title_icon.src ? ' has-icon-title' : '' %}
+                        {% set image_with_link_class = sub_menu.is_image_with_link ? ' image-with-link' : '' %}
+                        <div class="{{ cols }}{{ icon_title_class }}{{ image_with_link_class }}">
+                          <div class="col-wrap">
+                            {% if sub_menu.is_image_with_link and sub_menu.link_field.url.href %}
+                              <a 
+                                href="{{ sub_menu.link_field.url.href }}"
+                                {% if sub_menu.link_field.open_in_new_tab %}
+                                  target="_blank"
+                                {% endif %}
+                                {% if sub_menu.link_field.rel %}
+                                  rel="{{ sub_menu.link_field.rel|escape_attr }}"
+                                {% endif %}
+                               >
+                                {% if sub_menu.image_field.src %}
+                                  {% set sizeAttrs = 'width="{{ sub_menu.image_field.width|escape_attr }}" height="{{ sub_menu.image_field.height|escape_attr }}"' %}
+                                  {% if sub_menu.image_field.size_type == 'auto' %}
+                                    {% set sizeAttrs = 'width="{{ sub_menu.image_field.width|escape_attr }}" height="{{ sub_menu.image_field.height|escape_attr }}" style="max-width: 100%; height: auto;"' %}
+                                  {% elif sub_menu.image_field.size_type == 'auto_custom_max' %}
+                                    {% set sizeAttrs = 'width="{{ sub_menu.image_field.max_width|escape_attr }}" height="{{ sub_menu.image_field.max_height|escape_attr }}" style="max-width: 100%; height: auto;"' %}
+                                  {% endif %}
+                                  {% set loadingAttr = sub_menu.image_field.loading != 'disabled' ? 'loading="{{ sub_menu.image_field.loading|escape_attr }}"' : '' %}
+                                  <div class="img-wrap">  
+                                    <img src="{{ sub_menu.image_field.src|escape_url }}" alt="{{ sub_menu.image_field.alt|escape_attr }}" {{ loadingAttr }} {{ sizeAttrs }}>
+                                  </div>
+                                {% endif %}
+                                <span class="menu-txt">{{ sub_menu.s_title }}</span>
+                              </a>
+                            {% else %}
+                              {% if sub_menu.s_title %}
+                                <div class="menu-title-wrap{{ sub_menu.title_has_border ? " has-title-border" : ""}}">
+                                  {% if sub_menu.title_icon.src %}
+                                    {% set sizeAttrs = 'width="{{ sub_menu.title_icon.width|escape_attr }}" height="{{ sub_menu.title_icon.height|escape_attr }}"' %}
+                                    {% if sub_menu.title_icon.size_type == 'auto' %}
+                                      {% set sizeAttrs = 'width="{{ sub_menu.title_icon.width|escape_attr }}" height="{{ sub_menu.title_icon.height|escape_attr }}" style="max-width: 100%; height: auto;"' %}
+                                    {% elif sub_menu.title_icon.size_type == 'auto_custom_max' %}
+                                      {% set sizeAttrs = 'width="{{ sub_menu.title_icon.max_width|escape_attr }}" height="{{ sub_menu.title_icon.max_height|escape_attr }}" style="max-width: 100%; height: auto;"' %}
+                                    {% endif %}
+                                    {% set loadingAttr = sub_menu.title_icon.loading != 'disabled' ? 'loading="{{ sub_menu.title_icon.loading|escape_attr }}"' : '' %}
+                                    <div class="icon-wrap">
+                                      <img src="{{ sub_menu.title_icon.src|escape_url }}" alt="{{ sub_menu.title_icon.alt|escape_attr }}" {{ loadingAttr }} {{ sizeAttrs }}>
+                                    </div>
+                                  {% endif %}
+                                  <strong class="menu-title">
+                                    {{ sub_menu.s_title }}
+                                  </strong>
+                                </div>
+                              {% endif %}
+                              <div class="text">
+                                {% inline_rich_text field="normal_sub_menu_fields.description" value="{{ sub_menu.normal_sub_menu_fields.description }}" no_wrapper="true" %}
+                              </div>
+                              {% if sub_menu.sub_menu_type == "normal" %}
+                                {% if sub_menu.normal_sub_menu_fields.links %}
+                                  <ul class="sub-menu">
+                                  {% for normal_link in sub_menu.normal_sub_menu_fields.links %}
+                                    {% set desc_class = normal_link.link_description != "" ? " menu-item-desc" : "" %}
+                                    <li class="sub-menu-item{{ desc_class }}">
+                                      <a
+                                         href="{{ normal_link.link.url.href|escape_url }}"
+                                         {% if normal_link.link.open_in_new_tab %}
+                                         target="_blank"
+                                         {% endif %}
+                                         {% if normal_link.link.rel %}
+                                         rel="{{ normal_link.link.rel|escape_attr }}"
+                                         {% endif %}
+                                         >
+                                        {{ normal_link.link_label }}
+                                        {% if normal_link.link_description %}
+                                          <p>{{ normal_link.link_description }}</p>
+                                        {% endif %}
+                                      </a>
+                                    </li>
+                                  {% endfor %}
+                                  </ul>
+                                {% endif %}
+                              {% else %}
+                                {# BLOGS GO HERE #}
+                                {% if sub_menu.normal_sub_menu_fields.blogs|length > 0 %}
+                                  <ul class="sub-menu sub-menu-posts">
+                                    {% for blog_id in sub_menu.normal_sub_menu_fields.blogs %}
+                                      {% set blog = content_by_id(blog_id) %}
+                                      <li>
+                                        <a href="{{ blog.absolute_url }}">
+                                          {% if blog.featured_image %}
+                                            <div class="img-wrap">
+                                              <img src="{{ blog.featured_image }}" alt="{{ blog.title }}" width="145" height="145">
+                                            </div>
+                                          {% endif %}
+                                          <span>{{ blog.title }}</span>
+                                        </a>
+                                      </li>
+                                    {% endfor %}
+                                  </ul>
+                                {% endif %}
+                              {% endif %}
+                            {% endif %}
+                          </div>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          {% else %}
+            {# SUB MENU LINKS GO HERE #}
+            {% if item.submenu %}
+              <ul class="sub-menu">
+                {% for normal_submenu in item.submenu %}
+                  {% if normal_submenu.submenu_link.url %}
+                    <li class="sub-menu-item">
+                      <a
+                         href="{{ normal_submenu.submenu_link.url.href|escape_url }}"
+                         {% if normal_submenu.submenu_link.open_in_new_tab %}
+                          target="_blank"
+                         {% endif %}
+                         {% if normal_submenu.submenu_link.rel %}
+                          rel="{{  normal_submenu.submenu_link.rel|escape_attr }}"
+                         {% endif %}
+                         >
+                        {{ normal_submenu.submenu_link_label }}
+                      </a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}

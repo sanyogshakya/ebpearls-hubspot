@@ -1,0 +1,103 @@
+{% set inline_style = module.background_image.src ? 'style="background-image:url(' ~ module.background_image.src|escape_attr ~ ');"' : "" %}
+{% set bg_color = module.style.background_color != "none" ? "bg-" ~ module.style.background_color : "" %}
+<section class="hero-intro-section {{ bg_color }}" {{ inline_style }}>
+  <div class="container">
+    <div class="section-heading text-lg-center">
+      {% if module.tagline != "" %}
+      <div class="section-heading__tagline">{{ module.tagline }}</div>
+      {% endif %}
+      {% if module.title != "" %}
+      <h1 class="section-heading__title">{{ module.title }} <span class="typed-wrap"><span class="typed"></span></span></h1>
+      <span class="hero-typed-text d-none">{{ module.typed_text }}</span>
+      {% endif %}
+
+      {% if module.buttons|length > 0 %}
+      <div class="section-heading__btns d-md-flex justify-content-center">
+        {% for button in module.buttons %}
+        {% if button.button_type == "normal" %}
+          {% set button_type_class = " btn-primary" %}
+        {% else %}
+          {% set button_type_class = " btn-outline-primary" %}
+        {% endif %}
+        {% set href = button.button_link.url.href %}
+        {% if button.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+          {% set href = "mailto:" + href %}
+        {% endif %}
+        <div class="btn-wrapper">
+          <a
+             {% if button.button_link.url.type is equalto "CALL_TO_ACTION"  %}
+             href="{{ href }}" {# The href here is not escaped as it is not editable and functions as a JavaScript call to the associated CTA #}
+             {% else %}
+             href="{{ href|escape_url }}"
+             {% endif %}
+             {% if button.button_link.open_in_new_tab %}
+             target="_blank"
+             {% endif %}
+             {% if button.button_link.rel %}
+             rel="{{ button.button_link.rel|escape_attr }}"
+             {% endif %}
+             class="btn{{ button_type_class }}"
+             >
+            {{ button.button_title }}
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% require_js %}
+<script>
+  if (typeof window.typedJSLoaded === 'undefined') {
+    // Set a global variable to mark that the script has been loaded
+    window.typedJSLoaded = true;
+
+    // Dynamically load the script only if it hasn’t been loaded already
+    var script = document.createElement('script');
+    script.src = "{{ get_asset_url('/test-ebpearls/js/typed.min.js') }}";
+    script.async = true;
+    script.onload = function() {
+      var $ = jQuery;
+  
+      $(".hero-intro-section").each(function() {
+        var $section = $(this); 
+
+        if ($section.find(".typed").length > 0 && $section.find(".hero-typed-text").length > 0) {
+          var banner_typed_text = $section.find(".hero-typed-text").text().trim();
+          var global_typed_text = "startup, business, product";
+
+          // If no specific text is provided, fall back to the global text
+          if (banner_typed_text.length === 0) {
+            banner_typed_text = global_typed_text;
+          }
+
+          var typed_text = banner_typed_text.split(",");
+
+          // Apply the typed effect to the `.typed` element within this section
+          $section.find(".typed").typed({
+            strings: typed_text,
+            stringsElement: null,
+            typeSpeed: 60,
+            startDelay: 50,
+            backSpeed: 0,
+            shuffle: false,
+            backDelay: 5000,
+            fadeOut: false,
+            fadeOutClass: "typed-fade-out",
+            fadeOutDelay: 1000,
+            loop: true,
+            loopCount: false,
+            showCursor: true,
+            cursorChar: ".",
+            attr: null,
+            contentType: "html"
+          });
+        }
+      });
+    };
+    document.head.appendChild(script);
+  }
+</script>
+{% end_require_js %}

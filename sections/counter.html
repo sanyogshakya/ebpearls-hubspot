@@ -1,0 +1,22 @@
+<!--
+  templateType: section
+  label: Counter
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/hero-banner.png
+  description: "Counter section, displays rotating numbers."
+-->
+{% dnd_section
+  padding={
+    'top': 0,
+    'right': 0,
+    'bottom': 0,
+    'left': 0
+  },
+  full_width=true
+%}
+  {% dnd_module
+    path="../modules/counter",
+    label="counter"
+  %}
+  {% end_dnd_module %}
+{% end_dnd_section %}

@@ -1,0 +1,22 @@
+<!--
+  templateType: section
+  label: Logos
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/hero-banner.png
+  description: "Logos Section, displays logos in marquee forward or backward direction."
+-->
+{% dnd_section
+  padding={
+   'top': 0,
+   'right': 0,
+   'bottom': 0,
+   'left': 0
+ },
+ full_width=true
+%}
+  {% dnd_module
+    path="../modules/logos",
+    label="logos"
+  %}
+  {% end_dnd_module %}
+{% end_dnd_section %}

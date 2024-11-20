@@ -1,0 +1,23 @@
+<!--
+  templateType: section
+  label: FAQ
+  isAvailableForNewContent: true
+  screenshotPath: ../images/section-previews/hero-banner.png
+  description: "FAQ section, lists FAQs."
+-->
+{% dnd_section
+  padding={
+    'top': 0,
+    'right': 0,
+    'bottom': 0,
+    'left': 0
+  },
+  full_width=true
+%}
+  {% dnd_module
+    path="../modules/faq",
+    label="faq",
+    no_wrapper=true
+  %}
+  {% end_dnd_module %}
+{% end_dnd_section %}

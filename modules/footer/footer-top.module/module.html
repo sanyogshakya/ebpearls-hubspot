@@ -1,0 +1,106 @@
+<div class="footer-top">
+  <div class="container">
+    <div class="row">
+      {% if module.footer_menu_1 or module.footer_menu_2 %}
+        <div id="footer-1" class="col-12 col-lg-3 col-menu widget-area has--toggle">
+          <section id="nav_menu-1" class="widget widget_nav_menu">
+            <strong class="widget-title widget-toggle--wrapper">{{ module.footer_menu_1_title }}</strong>
+            <div class="menu-footer-menu-1-container">
+              {% simple_menu menu_tree="{{ module.footer_menu_1 }}" no_wrapper="true" %}
+            </div>
+          </section>
+          <section id="nav_menu-2" class="widget widget_nav_menu">
+            <strong class="widget-title widget-toggle--wrapper">{{ module.footer_menu_2_title }}</strong>
+            <div class="menu-footer-menu-2-container">
+              {% simple_menu menu_tree="{{ module.footer_menu_2 }}" no_wrapper="true" %}
+            </div>
+          </section>
+        </div>
+      {% endif %}
+      
+      {% if module.footer_menu_3 %}
+        <div id="footer-2" class="col-12 col-lg-3 col-menu widget-area has--toggle">
+          <section id="nav_menu-2" class="widget widget_nav_menu">
+            <strong class="widget-title widget-toggle--wrapper">{{ module.footer_menu_3_title }}</strong>
+            <div class="menu-footer-menu-2-container">
+              {% simple_menu menu_tree="{{ module.footer_menu_3 }}" no_wrapper="true" %}
+            </div>
+          </section>
+        </div>
+      {% endif %}
+      
+      {% if module.footer_menu_4 or module.footer_menu_5 or module.footer_menu_6 %}
+        <div id="footer-3" class="col-12 col-lg-3 col-menu widget-area has--toggle">
+          <section id="nav_menu-2" class="widget widget_nav_menu">
+            <strong class="widget-title widget-toggle--wrapper">{{ module.footer_menu_4_title }}</strong>
+            <div class="menu-footer-menu-2-container">
+              {% simple_menu menu_tree="{{ module.footer_menu_4 }}" no_wrapper="true" %}
+            </div>
+          </section>
+          <section id="nav_menu-2" class="widget widget_nav_menu">
+            <strong class="widget-title widget-toggle--wrapper">{{ module.footer_menu_5_title }}</strong>
+            <div class="menu-footer-menu-2-container">
+              {% simple_menu menu_tree="{{ module.footer_menu_5 }}" no_wrapper="true" %}
+            </div>
+          </section>
+          <section id="nav_menu-2" class="widget widget_nav_menu">
+            <strong class="widget-title widget-toggle--wrapper">{{ module.footer_menu_6_title }}</strong>
+            <div class="menu-footer-menu-2-container">
+              {% simple_menu menu_tree="{{ module.footer_menu_6 }}" no_wrapper="true" %}
+            </div>
+          </section>
+        </div>
+      {% endif %}
+      
+      {% if module.contact_us %}
+        <div id="footer-4" class="col-12 col-lg-3 col-contact widget-area">
+          <strong class="widget-title widget-toggle--wrapper">{{ module.contact_us_title }}</strong>
+          {% inline_rich_text field="contact_us" value="{{ module.contact_us }}" %}
+          
+          <div class="social-networks">
+            <ul class="d-flex">
+              {% for social_network in module.social_networks %}
+              <li>
+                <a
+                   href="{{ social_network.url.href|escape_url }}"
+                   {% if social_network.url.open_in_new_tab %}
+                   target="_blank"
+                   {% endif %}
+                   rel="noreferrer"
+                   aria-label="{{ social_network.icon.alt|escape_attr }}"
+                   >
+                  {% if social_network.icon.src %}
+                  {% set loadingAttr = social_network.icon.loading != 'disabled' ? 'loading="{{ social_network.icon.loading|escape_attr }}"' : '' %}
+                  <img src="{{ social_network.icon.src|escape_url }}" alt="{{ social_network.icon.alt|escape_attr }}" {{ loadingAttr }} width="20" height="20">
+                  {% endif %}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          
+          {% if module.help_center_link.url.href %}
+            <div class="btn-wrap mt-5">
+              <a
+                 class="btn btn-primary"
+                 href="{{ module.help_center_link.url.href|escape_url }}"
+                 {% if module.help_center_link.open_in_new_tab %}
+                  target="_blank"
+                 {% endif %}
+                 {% if module.help_center_link.rel == "nofollow noopener" %}
+                  rel="{{ module.help_center_link.rel|escape_attr }}"
+                 {% endif %}
+                >
+                {% if module.help_center_link_text %}
+                  {{ module.help_center_link_text }}
+                {% else %}
+                  Help Center
+                {% endif %}
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

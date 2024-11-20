@@ -1,0 +1,39 @@
+[ {
+  "id" : "be74abd7-8b52-d6e0-8808-8d01fdc59ec8",
+  "name" : "header_contact_for_nepal",
+  "display_width" : null,
+  "label" : "Header Contact For Nepal",
+  "required" : false,
+  "locked" : true,
+  "supported_types" : [ "PHONE_NUMBER" ],
+  "show_advanced_rel_options" : false,
+  "type" : "link",
+  "default" : {
+    "url" : {
+      "content_id" : null,
+      "href" : "",
+      "type" : "PHONE_NUMBER"
+    },
+    "open_in_new_tab" : false,
+    "no_follow" : false
+  }
+}, {
+  "id" : "061e86c7-5068-37ea-b96f-42101b40e006",
+  "name" : "header_contact",
+  "display_width" : null,
+  "label" : "Header Contact",
+  "required" : false,
+  "locked" : true,
+  "supported_types" : [ "PHONE_NUMBER" ],
+  "show_advanced_rel_options" : false,
+  "type" : "link",
+  "default" : {
+    "url" : {
+      "content_id" : null,
+      "href" : "",
+      "type" : "PHONE_NUMBER"
+    },
+    "open_in_new_tab" : false,
+    "no_follow" : false
+  }
+} ]

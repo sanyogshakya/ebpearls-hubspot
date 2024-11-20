@@ -1,0 +1,31 @@
+[ {
+  "id" : "e53a5d34-664d-d933-5248-a2c34de54cc8",
+  "name" : "header_action_link",
+  "display_width" : null,
+  "label" : "Header Action Link",
+  "required" : false,
+  "locked" : true,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "EMAIL_ADDRESS", "PHONE_NUMBER" ],
+  "show_advanced_rel_options" : false,
+  "type" : "link",
+  "default" : {
+    "url" : {
+      "content_id" : null,
+      "type" : "EXTERNAL",
+      "href" : ""
+    },
+    "open_in_new_tab" : false,
+    "no_follow" : false
+  }
+}, {
+  "id" : "a60677b9-ca55-7f5d-b794-4fe9206e153b",
+  "name" : "header_action_title",
+  "display_width" : null,
+  "label" : "Header Action Title",
+  "required" : false,
+  "locked" : true,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text"
+} ]

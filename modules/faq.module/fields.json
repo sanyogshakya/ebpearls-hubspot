@@ -1,0 +1,145 @@
+[ {
+  "id" : "1efbc4e5-d318-7a1a-704b-0c3074a4969f",
+  "name" : "title",
+  "display_width" : null,
+  "label" : "Title",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text"
+}, {
+  "id" : "b968efa0-7da1-fd00-3297-c91cb6846daa",
+  "name" : "description",
+  "display_width" : null,
+  "label" : "Description",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext"
+}, {
+  "id" : "8fef36a3-07e2-748e-5b29-eabc2dd881bd",
+  "name" : "link",
+  "display_width" : null,
+  "label" : "Link",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "PAYMENT" ],
+  "show_advanced_rel_options" : false,
+  "type" : "link",
+  "default" : {
+    "url" : {
+      "content_id" : null,
+      "type" : "EXTERNAL",
+      "href" : ""
+    },
+    "open_in_new_tab" : false,
+    "no_follow" : false
+  }
+}, {
+  "id" : "5a9b46ff-24bd-1861-9c9b-7845739c8590",
+  "name" : "link_title",
+  "display_width" : null,
+  "label" : "Link Title",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text"
+}, {
+  "id" : "526d72cf-d2dc-c011-5f36-5eeccfa3f062",
+  "name" : "faqs",
+  "display_width" : null,
+  "label" : "FAQs",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : null,
+    "max" : null,
+    "sorting_label_field" : "8036c804-ed7b-47ca-e3bd-190fbdf8aad2",
+    "default" : null
+  },
+  "children" : [ {
+    "id" : "8036c804-ed7b-47ca-e3bd-190fbdf8aad2",
+    "name" : "question",
+    "display_width" : null,
+    "label" : "Question",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text"
+  }, {
+    "id" : "c82abf68-9ec8-7d46-190e-47447745e2e0",
+    "name" : "answer",
+    "display_width" : null,
+    "label" : "Answer",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "default" : [ ]
+}, {
+  "id" : "f52cfc5f-e93d-75ca-f800-b64bab3a0818",
+  "name" : "style",
+  "display_width" : null,
+  "label" : "Style",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "1d0b349b-6841-def1-e666-e1db874921ca",
+    "name" : "section_padding",
+    "display_width" : null,
+    "label" : "Section Padding",
+    "required" : false,
+    "locked" : false,
+    "display" : "checkbox",
+    "choices" : [ [ "pt-0", "No Padding Top" ], [ "pb-0", "No Padding Bottom" ] ],
+    "multiple" : true,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "default" : [ ]
+  }, {
+    "id" : "38bc7cd9-e6f8-1a9b-aa50-4041c78b4c71",
+    "name" : "padding_type",
+    "display_width" : null,
+    "label" : "Padding Type",
+    "required" : false,
+    "locked" : false,
+    "display" : "radio",
+    "choices" : [ [ "p-small", "Small" ], [ "p-medium", "Medium" ], [ "p-large", "Large" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "default" : "p-medium"
+  }, {
+    "id" : "00777e00-2d5b-54a2-bbb8-911386982ddd",
+    "name" : "background_color",
+    "display_width" : null,
+    "label" : "Background Color",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "none", "None" ], [ "blue", "Blue" ], [ "off-white", "Off White" ], [ "cream", "Cream" ], [ "linen", "Linen" ], [ "light-sky-blue", "Light Sky Blue" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice"
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "default" : {
+    "section_padding" : [ ],
+    "padding_type" : "p-medium"
+  }
+} ]

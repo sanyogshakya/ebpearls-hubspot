@@ -1,0 +1,85 @@
+{% set padding = module.style.section_padding %}
+{% set bg_color = module.style.background_color != "none" ? "bg-" ~ module.style.background_color : "" %}
+<section id="<?php echo $id; ?>" class="section logos-block {{ bg_color }} {{ padding|join(" ") }} {{ module.style.padding_type }}">
+  <div class="container">
+    {% if module.title or module.description %}
+    <div class="section-heading text-lg-center">
+      {% if module.title %}
+      <h2 class="section-heading__title">{{ module.title }}</h2>
+      {% endif %}
+
+      {% if module.description %}
+      <div class="section-heading__desc">
+        <p>{{ module.description }}</p>
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if module.logos_backward|length > 0 or module.logos_forward|length > 0 %}
+    <div class="logos-wrap">
+      {% if module.logos_forward|length > 0 %}
+      <div class="marquee">
+        <div class="marquee__group">
+          {% for logo in module.logos_forward %}
+          {% if logo.image.src %}
+          {% set loadingAttr = logo.image.loading != 'disabled' ? 'loading="{{ logo.image.loading|escape_attr }}"' : '' %}
+          <div class="logo-wrap">
+            <img src="{{ logo.image.src|escape_url }}" alt="{{ logo.image.alt|escape_attr }}" {{ loadingAttr }} width="150" height="150" >
+            {% if logo.title %}
+            <span class="name">{{ logo.title }}</span>
+            {% endif %}
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <div aria-hidden="true" class="marquee__group">
+          {% for logo in module.logos_forward %}
+          {% if logo.image.src %}
+          {% set loadingAttr = logo.image.loading != 'disabled' ? 'loading="{{ logo.image.loading|escape_attr }}"' : '' %}
+          <div class="logo-wrap">
+            <img src="{{ logo.image.src|escape_url }}" alt="{{ logo.image.alt|escape_attr }}" {{ loadingAttr }} width="150" height="150" >
+            {% if logo.title %}
+            <span class="name">{{ logo.title }}</span>
+            {% endif %}
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if module.logos_backward|length > 0 %}
+      <div class="marquee marquee--reverse">
+        <div class="marquee__group">
+          {% for logo in module.logos_backward %}
+          {% if logo.image.src %}
+          {% set loadingAttr = logo.image.loading != 'disabled' ? 'loading="{{ logo.image.loading|escape_attr }}"' : '' %}
+          <div class="logo-wrap">
+            <img src="{{ logo.image.src|escape_url }}" alt="{{ logo.image.alt|escape_attr }}" {{ loadingAttr }} width="150" height="150" >
+            {% if logo.title %}
+            <span class="name">{{ logo.title }}</span>
+            {% endif %}
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <div aria-hidden="true" class="marquee__group">
+          {% for logo in module.logos_backward %}
+          {% if logo.image.src %}
+          {% set loadingAttr = logo.image.loading != 'disabled' ? 'loading="{{ logo.image.loading|escape_attr }}"' : '' %}
+          <div class="logo-wrap">
+            <img src="{{ logo.image.src|escape_url }}" alt="{{ logo.image.alt|escape_attr }}" {{ loadingAttr }} width="150" height="150" >
+            {% if logo.title %}
+            <span class="name">{{ logo.title }}</span>
+            {% endif %}
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</section>

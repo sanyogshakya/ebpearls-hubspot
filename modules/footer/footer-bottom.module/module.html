@@ -1,0 +1,18 @@
+<div class="footer-bottom">
+  <div class="container">
+    <div class="footer-bottom-wrap">
+      <div class="footer-bottom__left">
+        <div class="copyright"> <p>&copy; <a href="{{ request.domain }}">EB PEARLS.</a></p></div>
+      </div>
+      <div class="footer-bottom__right">
+        <div class="footer-bottom-menu-wrap">
+          {% if content.landingPage %}
+            {% simple_menu menu_tree="{{ module.footer_bottom_landing_menu }}" no_wrapper="true" %}
+          {% else %}
+            {% simple_menu menu_tree="{{ module.footer_bottom_menu }}" no_wrapper="true" %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<!--
+  templateType: global_partial
+  label: Footer
+-->
+<footer id="site-footer" class="site-footer bg-linen">
+  {# Footer Subscription #}
+  {% module "module_173070939430553" 
+    path='/test-ebpearls/modules/footer/footer-subscription'
+    label="footer-subscription"
+    no_wrapper="true"
+   %}
+  
+  {% if !content.landingPage %}
+    {# Footer Top #}
+    {% module "module_173071221994772"
+      path='/test-ebpearls/modules/footer/footer-top',
+      label="footer-top"
+      no_wrapper="true"
+    %}
+  {% endif %}
+  
+  {# Footer Bottom #}
+  {% module "module_173072076155542"
+    path='/test-ebpearls/modules/footer/footer-bottom'
+    label="footer-bottom"
+    no_wrapper="true"  
+  %}
+</footer>

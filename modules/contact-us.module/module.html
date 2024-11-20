@@ -1,0 +1,55 @@
+{% import "../../macros/section-heading-macro.html" %}
+{% set padding = module.style.section_padding %}
+{% set bg_color = module.style.background_color != "none" ? "bg-" ~ module.style.background_color : "" %}
+<section class="section contact-us-block {{ bg_color }} {{ padding|join(" ") }} {{ module.style.padding_type }}">
+  <div class="container">
+    {% if module.title %}
+    {{ section_heading(module.title) }}
+    {% endif %}
+    {% if module.contact_list %}
+    <div class="contact-us-lists">
+      <div class="row">
+        {% for item in module.contact_list %}
+        <div class="col-12 col-md-6 col-lg-3 card-contact">
+          <div class="card-wrap">
+            {% if item.icon.src or item.title or item.description %}
+            <div class="card-content-top">
+              {% if item.icon.src %}
+              {% set loadingAttr = item.icon.loading != 'disabled' ? 'loading="{{ item.icon.loading|escape_attr }}"' : '' %}
+              <div class="icon-wrap">
+                <img src="{{ item.icon.src|escape_url }}" alt="{{ item.icon.alt|escape_attr }}" {{ loadingAttr }} width="36" height="36">
+              </div>
+              {% endif %}
+            </div>
+            {% endif %}
+            {% if item.title or item.description %}
+            <div class="text-wrap">
+              {% if item.title %}
+              <h3>{{ item.title }}</h3>
+              {% endif %}
+              {% if item.description %}
+              <div class="desc">
+                {% inline_rich_text field="description" value="{{ item.description }}" no_wrapper=true %}
+              </div>
+              {% endif %}
+            </div>
+            {% endif %}
+            {% if item.link and item.link.url.href %}
+            <div class="btn-wrap">
+              {{ custom_link(item.link, item.link_title) }}
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  {% if module.image.src %}
+  {% set loadingAttr = module.image.loading != 'disabled' ? 'loading="{{ module.image.loading|escape_attr }}"' : '' %}
+  <div class="image-wrap">
+    <img src="{{ module.image.src|escape_url }}" alt="{{ module.image.alt|escape_attr }}" {{ loadingAttr }} width="775" height="556">
+  </div>
+  {% endif %}
+</section>

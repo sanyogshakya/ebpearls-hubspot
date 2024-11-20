@@ -1,0 +1,19 @@
+[ {
+  "id" : "424adb68-8259-6f29-6eaa-b888ae0c847c",
+  "name" : "footer_bottom_menu",
+  "display_width" : null,
+  "label" : "Footer Bottom Menu",
+  "required" : false,
+  "locked" : true,
+  "type" : "simplemenu",
+  "default" : [ ]
+}, {
+  "id" : "70e96318-adfe-714f-18d5-585869b16ac1",
+  "name" : "footer_bottom_landing_menu",
+  "display_width" : null,
+  "label" : "Footer Bottom Landing Menu",
+  "required" : false,
+  "locked" : true,
+  "type" : "simplemenu",
+  "default" : [ ]
+} ]

@@ -1,0 +1,171 @@
+[
+  {
+    "choices": [
+      ["type1", "Type 1 (Full Width)"],
+      ["type2", "Type 2 (Half Title Half Content)"]
+    ],
+    "default": "type1",
+    "display": "select",
+    "display_width": null,
+    "id": "722d6798-64f9-70e2-8d49-7ef18ba91c47",
+    "label": "Choose Type",
+    "locked": false,
+    "multiple": false,
+    "name": "choose_type",
+    "preset": null,
+    "reordering_enabled": true,
+    "required": false,
+    "type": "choice"
+  },
+  {
+    "allow_new_line": false,
+    "display_width": null,
+    "id": "5e011688-2d14-3af2-8fac-108bf6237f5b",
+    "label": "Title",
+    "locked": false,
+    "name": "title",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+  },
+  {
+    "default": {
+      "url": {
+        "content_id": null,
+        "type": "EXTERNAL",
+        "href": ""
+      },
+      "open_in_new_tab": false,
+      "no_follow": false
+    },
+    "display_width": null,
+    "id": "ad7bd1eb-2a33-af13-d6bf-f2d91c295c3b",
+    "label": "Link",
+    "locked": false,
+    "name": "link",
+    "required": false,
+    "show_advanced_rel_options": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG",
+      "CALL_TO_ACTION",
+      "PHONE_NUMBER",
+      "PAYMENT"
+    ],
+    "type": "link"
+  },
+  {
+    "allow_new_line": false,
+    "display_width": null,
+    "id": "a109c4a3-53b3-1484-68e2-177f0377c738",
+    "label": "Link Title",
+    "locked": false,
+    "name": "link_title",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+  },
+  {
+    "columns_to_fetch": [
+      "testimonial",
+      "image",
+      "small_image",
+      "name",
+      "designation"
+    ],
+    "default": {
+      "id": null
+    },
+    "display_columns": ["name"],
+    "display_width": null,
+    "id": "8391fc85-761e-e853-611f-995f29a23a3f",
+    "label": "Clients Say List",
+    "locked": false,
+    "name": "clients_say_list",
+    "occurrence": {},
+    "required": false,
+    "table_name_or_id": "101316878",
+    "type": "hubdbrow"
+  },
+  {
+    "id": "f52cfc5f-e93d-75ca-f800-b64bab3a0818",
+    "name": "style",
+    "display_width": null,
+    "label": "Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "1d0b349b-6841-def1-e666-e1db874921ca",
+        "name": "section_padding",
+        "display_width": null,
+        "label": "Section Padding",
+        "required": false,
+        "locked": false,
+        "display": "checkbox",
+        "choices": [
+          ["pt-0", "No Padding Top"],
+          ["pb-0", "No Padding Bottom"]
+        ],
+        "multiple": true,
+        "reordering_enabled": true,
+        "preset": null,
+        "type": "choice",
+        "default": []
+      },
+      {
+        "id": "38bc7cd9-e6f8-1a9b-aa50-4041c78b4c71",
+        "name": "padding_type",
+        "display_width": null,
+        "label": "Padding Type",
+        "required": false,
+        "locked": false,
+        "display": "radio",
+        "choices": [
+          ["p-small", "Small"],
+          ["p-medium", "Medium"],
+          ["p-large", "Large"]
+        ],
+        "multiple": false,
+        "reordering_enabled": true,
+        "preset": null,
+        "type": "choice",
+        "default": "p-medium"
+      },
+      {
+        "id": "00777e00-2d5b-54a2-bbb8-911386982ddd",
+        "name": "background_color",
+        "display_width": null,
+        "label": "Background Color",
+        "required": false,
+        "locked": false,
+        "display": "select",
+        "choices": [
+          ["none", "None"],
+          ["blue", "Blue"],
+          ["off-white", "Off White"],
+          ["cream", "Cream"],
+          ["linen", "Linen"],
+          ["light-sky-blue", "Light Sky Blue"]
+        ],
+        "multiple": false,
+        "reordering_enabled": true,
+        "preset": null,
+        "type": "choice"
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "group_occurrence_meta": null,
+    "type": "group",
+    "default": {
+      "section_padding": [],
+      "padding_type": "p-medium"
+    }
+  }
+]
