@@ -3,6 +3,6 @@
   "content_types" : [ "SITE_PAGE" ],
   "smart_type" : "NOT_SMART",
   "host_template_types" : [ "PAGE", "BLOG_LISTING", "BLOG_POST" ],
-  "module_id" : 182138414704,
+  "module_id" : 183052134799,
   "is_available_for_new_content" : false
 }

@@ -4,7 +4,7 @@
   "categories" : [ "body_content" ],
   "icon" : "../../images/module-icons/info-circle-solid.svg",
   "host_template_types" : [ "PAGE" ],
-  "module_id" : 181423292789,
+  "module_id" : 183052852839,
   "label" : "Card",
   "is_available_for_new_content" : true
 }

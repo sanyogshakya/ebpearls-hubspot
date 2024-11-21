@@ -1,14 +1,7 @@
 {
-  "label": "Clients Say",
-  "css_assets": [],
-  "external_js": [],
-  "global": false,
-  "help_text": "",
-  "content_types": [
-    "PAGE"
-  ],
-  "js_assets": [],
-  "other_assets": [],
-  "smart_type": "NOT_SMART",
-  "tags": []
+  "global" : false,
+  "content_types" : [ "LANDING_PAGE", "SITE_PAGE", "BLOG_LISTING", "BLOG_POST" ],
+  "host_template_types" : [ "PAGE", "BLOG_LISTING", "BLOG_POST" ],
+  "module_id" : 183052973568,
+  "is_available_for_new_content" : true
 }

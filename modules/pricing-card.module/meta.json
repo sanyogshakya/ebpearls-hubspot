@@ -4,7 +4,7 @@
   "categories" : [ "commerce" ],
   "icon" : "../../images/module-icons/table.svg",
   "host_template_types" : [ "PAGE" ],
-  "module_id" : 181423292792,
+  "module_id" : 183052921386,
   "label" : "Pricing card",
   "is_available_for_new_content" : true
 }

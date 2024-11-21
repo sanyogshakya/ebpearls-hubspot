@@ -4,7 +4,7 @@
   "categories" : [ "forms_and_buttons" ],
   "icon" : "../../images/module-icons/cta.svg",
   "host_template_types" : [ "PAGE" ],
-  "module_id" : 181423564935,
+  "module_id" : 183052973493,
   "label" : "Button",
   "is_available_for_new_content" : true
 }
